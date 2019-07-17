@@ -10,7 +10,11 @@ answers 	= [
 			   ]
 
 definte_idx = (rand * 100 % 4).to_i 
-subject_idx = ARGV[0].to_i - 1 || (rand * 100 % 4).to_i
+subject_idx = (rand * 100 % 4).to_i 
+
+if ARGV.nil? == false and ARGV[0].nil? == false
+  subject_idx = ARGV[0].to_i - 1
+end
 
 puts genders[subject_idx] + components[definte_idx]	
 ARGV.clear
