@@ -17,18 +17,14 @@ if ARGV[0] == 'help' and !ARGV[1].nil?
   exit
 end
 
-if ARGV.nil? == false and ARGV[0].nil? == false
-  subject_idx = ARGV[0].to_i - 1
-end
-
 def test()
 	definte_idx = (rand * 100 % 4).to_i 
 	subject_idx = (rand * 100 % 4).to_i 
+	if ARGV.nil? == false and ARGV[0].nil? == false
+	  subject_idx = ARGV[0].to_i - 1
+	end
 	puts $genders[subject_idx] + $components[definte_idx]	
-
-	gets
-
-
+	STDIN.gets
 	ARGV.clear
 	puts $answers[subject_idx][definte_idx] + ' ' + $subjects[subject_idx]
 end
@@ -36,13 +32,15 @@ end
 def auto
 	definte_idx = (rand * 100 % 4).to_i 
 	subject_idx = (rand * 100 % 4).to_i 
+	if ARGV.nil? == false and ARGV[1].nil? == false
+	  subject_idx = ARGV[1].to_i - 1
+	end
 	puts $genders[subject_idx] + $components[definte_idx]	
 	sleep(4)
 	puts '-> ' + $answers[subject_idx][definte_idx] + ' ' + $subjects[subject_idx]
 	sleep(2)
 	auto
 end
-
 
 if !ARGV.nil? and !ARGV[0].nil? and ARGV[0] == 'auto'
 	auto
