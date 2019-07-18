@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require 'colorize'
+
 $genders = ['그 남자', '그 아이', '그 여자', '그 사람들']
 $components = ['가(이)', '를(을)', '에게', '의']
 $subjects 	= ['Mann', 'Kind', 'Frau', 'Leute']
@@ -11,6 +13,8 @@ $answers 	= [
 
 
 if ARGV[0] == 'help' and !ARGV[1].nil?
+  title = ['남성', '중성', '여성', '복수']
+  puts "--- #{title[ARGV[1].to_i - 1]} ---".green
   ['Nom(가)', 'Akk(를)', 'Dat(에게)', 'Gen(의)'].zip($answers[ARGV[1].to_i - 1]).each{|x|
 	  puts "#{x[0]} : #{x[1]}"
   }
@@ -26,7 +30,7 @@ def test()
 	puts $genders[subject_idx] + $components[definte_idx]	
 	STDIN.gets
 	ARGV.clear
-	puts $answers[subject_idx][definte_idx] + ' ' + $subjects[subject_idx]
+	puts $answers[subject_idx][definte_idx].red + ' ' + $subjects[subject_idx]
 end
 
 def auto
@@ -37,8 +41,8 @@ def auto
 	end
 	puts $genders[subject_idx] + $components[definte_idx]	
 	sleep(4)
-	puts '-> ' + $answers[subject_idx][definte_idx] + ' ' + $subjects[subject_idx]
-	sleep(2)
+	puts '-> ' + $answers[subject_idx][definte_idx].red + ' ' + $subjects[subject_idx]
+	sleep(1.5)
 	auto
 end
 
