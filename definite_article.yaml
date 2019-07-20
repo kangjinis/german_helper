@@ -1,0 +1,49 @@
+---
+genders_for_definite: 
+  masculine: '남성'
+  neutral:   '중성'
+  feminine:  '여성'
+  plural:    '복수'
+
+cases:
+  - nominativ:  '가(이)'
+  - akkusativ:  '를'
+  - dativ:      '에게'
+  - genetiv:    '의'
+
+nouns:
+  masculine:
+    - Mann:   '남자'
+    # - Vater:  '아버지'
+  neutral:
+    - Kind:   '아이'
+  feminine:
+    - Frau:   '여자'
+  plural:
+    - Leute:  '사람들'
+
+article_types:
+  - definite_articles
+  - indefinite_articles
+
+definite_articles:
+  masculine: 
+    nominativ: der
+    akkusativ: den
+    dativ:     dem
+    genetiv:   des
+  neutral: 
+    nominativ: das
+    akkusativ: das
+    dativ:     dem
+    genetiv:   des
+  feminine: 
+    nominativ: die
+    akkusativ: die
+    dativ:     der
+    genetiv:   der
+  plural: 
+    nominativ: die
+    akkusativ: die
+    dativ:     den
+    genetiv:   der
