@@ -3,7 +3,6 @@ require 'thor'
 require "yaml"
 require 'terminal-table'
 require 'colorize'
-require 'whirly'
 require 'tty-prompt'
 
 class GermanArticleStudy
