@@ -4,7 +4,14 @@ class GermanData
 	def initialize
 		@doc = YAML.load_file './german_data.yaml'
 	end
+
 	public
+	def get_ko_article(article)
+		{
+			'indefinite_articles'=>'한',
+			'definite_articles' => '그'
+		}[article]
+	end
 	def get_random_noun(gender)
 		noun_pair = @doc['nouns'][gender].sample
 		return noun_pair.keys[0], noun_pair[noun_pair.keys[0]]

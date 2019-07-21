@@ -13,14 +13,6 @@ class GermanGrammarCLI < Thor
 	end
 
 	private
-	def get_ko_article(article)
-		case article
-		when 'indefinite_article'
-			return '한'
-		when 'definite_article'
-			return '그'
-		end
-	end
 	def get_article_qna(article, gender)
 		if gender == 'all' 
 			genders = nil
@@ -37,7 +29,7 @@ class GermanGrammarCLI < Thor
 		case_ger, case_kor = @german_data.get_random_case
 
 		{
-			:question	=> "#{get_ko_article(article)} #{noun_kor}#{case_kor}?",
+			:question	=> "#{@german_data.get_ko_article(article)} #{noun_kor}#{case_kor}?",
 			:answer		=> "#{@german_data.send(article)[gender][case_ger].red} #{noun_ger}"
 		}
 	end
