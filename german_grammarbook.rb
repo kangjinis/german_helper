@@ -28,7 +28,7 @@ class GermanGrammarCLI < Thor
 
 		{
 			:question	=> "그 #{noun_kor}#{case_kor}?",
-			:answer		=> "#{@german_data.definite_articles[gender][case_ger]} #{noun_ger}"
+			:answer		=> "#{@german_data.definite_articles[gender][case_ger].red} #{noun_ger}"
 		}
 	end
 
@@ -43,22 +43,33 @@ class GermanGrammarCLI < Thor
     end
 
 	desc 'test', ''
-	def test(article='', gender='', repeat_no=1)
-		if(article == '') 
+	def test(auto=false)
+		article = nil; gender = nil;
+		if(article.nil?) 
 			article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
 		end
-		if(gender == '')
+		if(gender.nil?)
 			gender = @prompt.enum_select("Select a gender?", @german_data.genders.clone.insert(0, 'all'))
 		end
 		puts '---------------------------------------'
 
-		qna = get_definite_article_qna(article, gender)
-		question = "Q#{repeat_no}. #{qna[:question]}"
-		@prompt.ask question
-		answer = " => A#{repeat_no}. #{qna[:answer]}"
-		puts answer
+		cnt = 0
+		while(1) do 
+			cnt += 1
+			qna = get_definite_article_qna(article, gender)
+			question = "Q#{cnt}. #{qna[:question]}"
+			answer = " => A#{cnt}. #{qna[:answer]}"
 
-		test(article, gender, repeat_no + 1)
+			if(auto == false)
+				@prompt.ask question
+				puts answer
+			else
+				puts question
+				sleep(3)
+				puts answer
+				sleep(1)
+			end
+		end
 	end
 end
 
