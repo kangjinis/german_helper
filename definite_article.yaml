@@ -1,9 +1,13 @@
 ---
-genders_for_definite: 
+genders: 
   - masculine
   - neutral
   - feminine
   - plural
+
+article_types:
+  - definite_articles
+  - indefinite_articles
 
 cases:
   - nominativ:  '가(이)'
@@ -21,10 +25,6 @@ nouns:
     - Frau:   '여자'
   plural:
     - Leute:  '사람들'
-
-article_types:
-  - definite_articles
-  - indefinite_articles
 
 definite_articles:
   masculine: 
@@ -47,3 +47,25 @@ definite_articles:
     akkusativ: die
     dativ:     den
     genetiv:   der
+
+genders_for_indefinite: 
+  - masculine
+  - neutral
+  - feminine
+
+indefinite_articles:
+  masculine: 
+    nominativ: ein
+    akkusativ: einen
+    dativ:     einem
+    genetiv:   eines
+  neutral: 
+    nominativ: ein
+    akkusativ: ein
+    dativ:     einem
+    genetiv:   eines
+  feminine: 
+    nominativ: eine
+    akkusativ: eine
+    dativ:     einer
+    genetiv:   einer
