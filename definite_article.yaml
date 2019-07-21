@@ -1,13 +1,13 @@
 ---
 genders_for_definite: 
-  masculine: '남성'
-  neutral:   '중성'
-  feminine:  '여성'
-  plural:    '복수'
+  - masculine
+  - neutral
+  - feminine
+  - plural
 
 cases:
   - nominativ:  '가(이)'
-  - akkusativ:  '를'
+  - akkusativ:  '를(을)'
   - dativ:      '에게'
   - genetiv:    '의'
 
