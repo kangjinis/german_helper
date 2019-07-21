@@ -15,14 +15,7 @@ class GermanGrammarCLI < Thor
 	private
 	def get_article_qna(article, gender)
 		if gender == 'all' 
-			genders = nil
-			case article
-			when 'indefinite_articles'
-				genders = @german_data.genders_for_indefinite
-			when 'definite_articles'
-				genders = @german_data.genders
-			end
-			gender = genders.sample
+			gender = @german_data.get_genders_by_article(article).sample
 		end
 
 		noun_ger, noun_kor = @german_data.get_random_noun(gender)
@@ -38,7 +31,7 @@ class GermanGrammarCLI < Thor
 	desc "hint", ''
 	def hint
 		article = @prompt.enum_select("Select an article type?", @german_data.article_types)
-		gender 	= @prompt.enum_select("Select a gender?", @german_data.genders)
+		gender 	= @prompt.enum_select("Select a gender?", @german_data.get_genders_by_article(article))
 	    specific_article = @german_data.send(article)
 	    table 	= Terminal::Table.new :rows => specific_article[gender], :title=>"#{article}##{gender}".red
 	    puts table
@@ -51,7 +44,7 @@ class GermanGrammarCLI < Thor
 			article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
 		end
 		if(gender.nil?)
-			genders = article == 'definite_articles' ? @german_data.genders_with_all : @german_data.genders_for_indefinite_with_all
+			genders = @german_data.get_genders_by_article(article).insert(0, 'all')
 			gender = @prompt.enum_select("Select a gender?", genders) 
 		end
 		puts '---------------------------------------'

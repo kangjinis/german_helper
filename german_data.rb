@@ -4,34 +4,33 @@ class GermanData
 	def initialize
 		@doc = YAML.load_file './german_data.yaml'
 	end
-
-	public
-	def get_ko_article(article)
-		{
-			'indefinite_articles'=>'한',
-			'definite_articles' => '그'
-		}[article]
-	end
-	def get_random_noun(gender)
-		noun_pair = @doc['nouns'][gender].sample
-		return noun_pair.keys[0], noun_pair[noun_pair.keys[0]]
-	end
+	private
 	def genders
 		%w(masculine neutral feminine plural)
 	end
 	def genders_for_indefinite
 		%w(masculine neutral feminine)
 	end
-	def genders_with_all
-		genders.insert(0, 'all')
-	end
-	def genders_for_indefinite_with_all
-		genders = genders_for_indefinite.insert(0, 'all')
-		genders.delete('plural')
-		genders
-	end
 	def cases
 		@doc['cases']
+	end
+
+	public
+	def get_genders_by_article(article)
+		{
+			'indefinite_articles'	=> genders_for_indefinite,
+			'definite_articles'		=> genders
+		}[article]
+	 end
+	def get_ko_article(article)
+		{
+			'indefinite_articles'	=> '한',
+			'definite_articles'		=> '그'
+		}[article]
+	end
+	def get_random_noun(gender)
+		noun_pair = @doc['nouns'][gender].sample
+		return noun_pair.keys[0], noun_pair[noun_pair.keys[0]]
 	end
 	def get_random_case
 		case_pair = cases.sample
