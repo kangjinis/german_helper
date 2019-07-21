@@ -1,10 +1,4 @@
 ---
-genders: 
-  - masculine
-  - neutral
-  - feminine
-  - plural
-
 article_types:
   - definite_articles
   - indefinite_articles
