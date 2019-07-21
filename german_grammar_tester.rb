@@ -12,8 +12,6 @@ class GermanGrammarCLI < Thor
 		@prompt = TTY::Prompt.new
 	end
 
-	
-
 	private
 	def get_ko_article(article)
 		case article

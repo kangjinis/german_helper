@@ -2,7 +2,7 @@ require 'yaml'
 
 class GermanData
 	def initialize
-		@doc = YAML.load_file './definite_article.yaml'
+		@doc = YAML.load_file './german_data.yaml'
 	end
 	public
 	def get_random_noun(gender)
