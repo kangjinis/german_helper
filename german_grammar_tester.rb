@@ -63,9 +63,9 @@ class GermanGrammarCLI < Thor
       if (auto == false)
         result = @prompt.ask question
         puts answer
-		if(result == 'q')
-			exit
-		end
+        if (result == "q")
+          exit
+        end
       else
         puts question
         sleep(3)
