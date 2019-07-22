@@ -21,7 +21,7 @@ class GermanGrammarCLI < Thor
     article = @prompt.enum_select("Select an article type?", @german_data.article_types)
     specific_article = @german_data.send(article)
     type_instance = TypeFactory.new.get_instance(article)
-    puts type_instance.get_hint
+    type_instance.print_hint
   end
 
   desc "test", ""
@@ -33,6 +33,7 @@ class GermanGrammarCLI < Thor
     end
 
     qna_generator = TypeFactory.new.get_instance(article)
+    puts qna_generator.class
     qna_generator.ask_question(@prompt)
 
     cnt = 0

@@ -6,9 +6,8 @@ class DefiniteArticles
 
   public
 
-  def get_hint
+  def print_hint
     specific_article = @german_data.send(@type)
-
     table = Terminal::Table.new do |t|
       t.headings = @german_data.cases.keys.insert(0, "")
       genders = @german_data.get_genders_by_article(@type)
@@ -17,7 +16,6 @@ class DefiniteArticles
         t.add_row [g, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
       end
     end
-
     puts table
   end
 

@@ -6,7 +6,7 @@ class IndefiniteArticles
 
   public
 
-  def get_hint
+  def print_hint
     specific_article = @german_data.send(@type)
 
     table = Terminal::Table.new do |t|

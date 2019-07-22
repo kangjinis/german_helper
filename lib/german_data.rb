@@ -47,7 +47,7 @@ class GermanData
   end
 
   def article_types
-    %w(definite_articles indefinite_articles)
+    @doc["article_types"]
   end
 
   def definite_articles
