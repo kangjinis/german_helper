@@ -2,8 +2,7 @@ require "yaml"
 
 class GermanData
   def initialize
-    # @doc = YAML.load_file "./lib/german_data.yaml"
-    @doc = YAML::load_file(File.join(__dir__, 'german_data.yaml'))
+    @doc = YAML::load_file(File.join(__dir__, "german_data.yaml"))
   end
 
   private
