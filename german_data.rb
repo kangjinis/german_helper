@@ -15,11 +15,11 @@ class GermanData
     %w(masculine neutral feminine)
   end
 
+  public
+
   def cases
     @doc["cases"]
   end
-
-  public
 
   def get_genders_by_article(article)
     {
@@ -41,8 +41,9 @@ class GermanData
   end
 
   def get_random_case
-    case_pair = cases.sample
-    return case_pair.keys[0], case_pair[case_pair.keys[0]]
+    case_ger = cases.keys.sample
+    case_kor = cases[case_ger]
+    return case_ger, case_kor
   end
 
   def article_types

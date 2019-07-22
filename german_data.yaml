@@ -4,10 +4,10 @@ article_types:
   - indefinite_articles
 
 cases:
-  - nominativ:  '가(이)'
-  - akkusativ:  '를(을)'
-  - dativ:      '에게'
-  - genetiv:    '의'
+  nominativ:  '가(이)'
+  akkusativ:  '를(을)'
+  dativ:      '에게'
+  genetiv:    '의'
 
 nouns:
   masculine:
