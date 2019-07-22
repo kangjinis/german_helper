@@ -20,17 +20,8 @@ class GermanGrammarCLI < Thor
   def hint
     article = @prompt.enum_select("Select an article type?", @german_data.article_types)
     specific_article = @german_data.send(article)
-
-    table = Terminal::Table.new do |t|
-      t.headings = @german_data.cases.keys.insert(0, "")
-      genders = @german_data.get_genders_by_article(article)
-      genders.each do |g|
-        item = specific_article[g]
-        t.add_row [g, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
-      end
-    end
-
-    puts table
+    type_instance = TypeFactory.new.get_instance(article)
+    puts type_instance.get_hint
   end
 
   desc "test", ""
