@@ -61,8 +61,11 @@ class GermanGrammarCLI < Thor
       answer = " => A#{cnt}. #{qna[:answer]}"
 
       if (auto == false)
-        @prompt.ask question
+        result = @prompt.ask question
         puts answer
+		if(result == 'q')
+			exit
+		end
       else
         puts question
         sleep(3)
