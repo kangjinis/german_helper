@@ -3,7 +3,7 @@ require "thor"
 require "terminal-table"
 require "colorize"
 require "tty-prompt"
-require "./german_data.rb"
+require "./lib/german_data.rb"
 
 class GermanGrammarCLI < Thor
   def initialize(*args)
