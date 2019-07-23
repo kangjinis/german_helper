@@ -1,6 +1,6 @@
-require_relative './qa_generator.rb'
+require_relative './qna_generator.rb'
 
-class Pronouns < QAGenerator
+class Pronouns < QnaGenerator
   public
 
   def print_hint

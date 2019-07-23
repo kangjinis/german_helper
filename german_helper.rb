@@ -4,7 +4,7 @@ require "terminal-table"
 require "colorize"
 require "tty-prompt"
 require "./lib/german_data.rb"
-require "./lib/qa_generators/qa_generator_factory.rb"
+require "./lib/qna_generators/qna_generator_factory.rb"
 
 class GermanGrammarCLI < Thor
   def initialize(*args)
@@ -20,7 +20,7 @@ class GermanGrammarCLI < Thor
   def hint
     article = @prompt.enum_select("Select an article type?", @german_data.article_types)
     specific_article = @german_data.send(article)
-    type_instance = QAGeneratorFactory.create(article)
+    type_instance = QnaGeneratorFactory.create(article)
     type_instance.print_hint
   end
 
@@ -32,7 +32,7 @@ class GermanGrammarCLI < Thor
       article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
     end
 
-    qna_generator = QAGeneratorFactory.create(article)
+    qna_generator = QnaGeneratorFactory.create(article)
     qna_generator.ask_question(@prompt)
 
     cnt = 0

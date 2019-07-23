@@ -1,6 +1,7 @@
-require_relative './qa_generator.rb'
+require_relative './qna_generator.rb'
 
-class IndefiniteArticles < QAGenerator
+class DefiniteArticles < QnaGenerator
+
   public
 
   def print_hint
@@ -12,7 +13,6 @@ class IndefiniteArticles < QAGenerator
         t.add_row [gender, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
       end
     end
-
     puts table
   end
 
