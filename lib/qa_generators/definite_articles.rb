@@ -6,11 +6,11 @@ class DefiniteArticles < QAGenerator
 
   def print_hint
     table = Terminal::Table.new do |t|
-      t.headings = @german_data.cases.keys.insert(0, "")
+      t.headings = @german_data.cases_dic.keys.insert(0, "")
       genders = @german_data.get_genders_by_article(@type)
       genders.each do |gender|
         item = @data[gender]
-        t.add_row [g, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
+        t.add_row [gender, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
       end
     end
     puts table
