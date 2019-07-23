@@ -5,7 +5,7 @@ class IndefiniteArticles < QAGenerator
 
   def print_hint
     table = Terminal::Table.new do |t|
-      t.headings = @german_data.cases.keys.insert(0, "")
+      t.headings = @german_data.cases_dic.keys.insert(0, "")
       genders = @german_data.get_genders_by_article(@type)
       genders.each do |gender|
         item = @data[gender]

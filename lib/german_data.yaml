@@ -4,13 +4,24 @@ article_types:
   - indefinite_articles
   - possesive_pronouns
 
-cases:
+pronouns_dic:
+  ich: '나'
+  du: '너'
+  er: '그'
+  es: '그것'
+  sie(she): '그녀'
+  wir: '우리'
+  ihr: '너희'
+  sie(they): '그들'
+  Sie(formal): '당신'
+
+cases_dic:
   nominativ:  '가(이)'
   akkusativ:  '를(을)'
   dativ:      '에게'
   genetiv:    '의'
 
-nouns:
+nouns_dic:
   masculine:
     - Mann:   '남자'
     # - Vater:  '아버지'
@@ -71,50 +82,48 @@ possesive_pronouns:
   Sie: Ihr
 
 pronouns:
-  singular:
-    - ich:
-      - nominativ: ich
-      - akkusativ: mich
-      - dativ: mir
-      - genetiv: meiner
-    - du:
-      - nominativ: du
-      - akkusativ: dich
-      - dativ: dir
-      - genetiv: deiner
-    - er:
-      - nominativ: er
-      - akkusativ: ihn
-      - dativ: ihm
-      - genetiv: seiner
-    - es:
-      - nominativ: es
-      - akkusativ: es
-      - dativ: ihm
-      - genetiv: seiner
-    - sie:
-      - nominativ: sie
-      - akkusativ: sie
-      - dativ: ihr
-      - genetiv: ihrer
-    - Sie:
-      - nominativ: Sie
-      - akkusativ: Sie
-      - dativ: Ihnen
-      - genetiv: Ihrer
-  plural:
-    - wir:
-      - nominativ: wir
-      - akkusativ: uns
-      - dativ: uns
-      - genetiv: unser
-    - ihr:
-      - nominativ: wir
-      - akkusativ: uns
-      - dativ: uns
-      - genetiv: unser
-    - sie:
-      - nominativ: sie
-      - akkusativ: sie
-      - dativ: ihnen
-      - genetiv: ihrer
+  - ich:
+    nominativ: ich
+    akkusativ: mich
+    dativ: mir
+    genetiv: meiner
+  - du:
+    nominativ: du
+    akkusativ: dich
+    dativ: dir
+    genetiv: deiner
+  - er:
+    nominativ: er
+    akkusativ: ihn
+    dativ: ihm
+    genetiv: seiner
+  - es:
+    nominativ: es
+    akkusativ: es
+    dativ: ihm
+    genetiv: seiner
+  - sie(she):
+    nominativ: sie
+    akkusativ: sie
+    dativ: ihr
+    genetiv: ihrer
+  - wir:
+    nominativ: wir
+    akkusativ: uns
+    dativ: uns
+    genetiv: unser
+  - ihr:
+    nominativ: wir
+    akkusativ: uns
+    dativ: uns
+    genetiv: euer
+  - sie(they):
+    nominativ: sie
+    akkusativ: sie
+    dativ: ihnen
+    genetiv: ihrer
+  - Sie(formal):
+    nominativ: Sie
+    akkusativ: Sie
+    dativ: Ihnen
+    genetiv: Ihrer

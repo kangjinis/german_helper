@@ -17,8 +17,8 @@ class GermanData
 
   public
 
-  def cases
-    @doc["cases"]
+  def cases_dic
+    @doc["cases_dic"]
   end
 
   def get_genders_by_article(article)
@@ -36,13 +36,13 @@ class GermanData
   end
 
   def get_random_noun(gender)
-    noun_pair = @doc["nouns"][gender].sample
+    noun_pair = @doc["nouns_dic"][gender].sample
     return noun_pair.keys[0], noun_pair[noun_pair.keys[0]]
   end
 
   def get_random_case
-    case_ger = cases.keys.sample
-    case_kor = cases[case_ger]
+    case_ger = cases_dic.keys.sample
+    case_kor = cases_dic[case_ger]
     return case_ger, case_kor
   end
 
