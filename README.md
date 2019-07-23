@@ -15,7 +15,7 @@ Select a gender? masculine
 ```
 
 ```
-➜  german_helper git:(master) ./german_grammar_tester.rb test
+➜  german_helper git:(master) ./german_helper.rb test
 which type do you want to study? definite_articles
 Select a gender? all
 ---------------------------------------
