@@ -13,7 +13,7 @@ class QAGenerator
     def print_hint
         puts 'not implemented'
     end
-    def ask_question
+    def ask_question(prompt)
     end
     def get_qna
     {

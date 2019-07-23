@@ -14,9 +14,6 @@ class PossesivePronouns < QAGenerator
     puts table
   end
 
-  def ask_question(prompt)
-  end
-
   def get_qna()
     questions = @german_data.possesive_pronouns
     question = questions.keys.sample
