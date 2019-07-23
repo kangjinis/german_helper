@@ -71,16 +71,6 @@ indefinite_articles:
     dativ:     einer
     genetiv:   einer
 
-possesive_pronouns:
-  ich: mein
-  du: dein
-  er: sein
-  es: sein
-  sie: ihr
-  wir: unser
-  ihr: euer
-  Sie: Ihr
-
 pronouns:
   ich:
     nominativ: ich
