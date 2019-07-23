@@ -7,8 +7,11 @@ class QAGenerator
     def initialize()
         @german_data = GermanData.new
         @type = underscore(self.class.name)
+        @data = @german_data.send(@type)
     end
-    
+
+    protected
+
     public
     def print_hint
         puts 'not implemented'

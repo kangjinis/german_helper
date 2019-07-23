@@ -4,14 +4,12 @@ class IndefiniteArticles < QAGenerator
   public
 
   def print_hint
-    specific_article = @german_data.send(@type)
-
     table = Terminal::Table.new do |t|
       t.headings = @german_data.cases.keys.insert(0, "")
       genders = @german_data.get_genders_by_article(@type)
-      genders.each do |g|
-        item = specific_article[g]
-        t.add_row [g, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
+      genders.each do |gender|
+        item = @data[gender]
+        t.add_row [gender, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
       end
     end
 
@@ -33,7 +31,7 @@ class IndefiniteArticles < QAGenerator
 
     {
       :question => "#{@german_data.get_ko_article(@type)} #{noun_kor}#{case_kor}?",
-      :answer => "#{@german_data.send(@type)[@gender][case_ger].red} #{noun_ger}",
+      :answer => "#{@data[@gender][case_ger].red} #{noun_ger}",
     }
   end
 end

@@ -4,7 +4,7 @@ class PossesivePronouns < QAGenerator
   public
 
   def print_hint
-    questions = @german_data.possesive_pronouns
+    questions = @data
     table = Terminal::Table.new do |t|
       t.headings = %w(pronouns possesive_pronouns)
       questions.keys.each { |k|
@@ -15,7 +15,7 @@ class PossesivePronouns < QAGenerator
   end
 
   def get_qna()
-    questions = @german_data.possesive_pronouns
+    questions = @data
     question = questions.keys.sample
     answer = questions[question]
     {
