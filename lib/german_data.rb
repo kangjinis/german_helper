@@ -61,4 +61,12 @@ class GermanData
   def possesive_pronouns
     @doc["possesive_pronouns"]
   end
+
+  def pronouns_dic
+    @doc["pronouns_dic"]
+  end
+
+  def pronouns
+    @doc["pronouns"]
+  end
 end

@@ -2,7 +2,7 @@
 article_types:
   - definite_articles
   - indefinite_articles
-  - possesive_pronouns
+  - pronouns
 
 pronouns_dic:
   ich: '나'
@@ -82,48 +82,49 @@ possesive_pronouns:
   Sie: Ihr
 
 pronouns:
-  - ich:
+  ich:
     nominativ: ich
     akkusativ: mich
     dativ: mir
     genetiv: meiner
-  - du:
+  du:
     nominativ: du
     akkusativ: dich
     dativ: dir
     genetiv: deiner
-  - er:
+  er:
     nominativ: er
     akkusativ: ihn
     dativ: ihm
     genetiv: seiner
-  - es:
+  es:
     nominativ: es
     akkusativ: es
     dativ: ihm
     genetiv: seiner
-  - sie(she):
+  sie(she):
     nominativ: sie
     akkusativ: sie
     dativ: ihr
     genetiv: ihrer
-  - wir:
+  wir:
     nominativ: wir
     akkusativ: uns
     dativ: uns
     genetiv: unser
-  - ihr:
-    nominativ: wir
+  ihr:
+    nominativ: ihr
     akkusativ: uns
     dativ: uns
     genetiv: euer
-  - sie(they):
+  sie(they):
     nominativ: sie
     akkusativ: sie
     dativ: ihnen
     genetiv: ihrer
-  - Sie(formal):
+  Sie(formal):
     nominativ: Sie
     akkusativ: Sie
     dativ: Ihnen
     genetiv: Ihrer
+
