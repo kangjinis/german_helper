@@ -37,7 +37,7 @@ class GermanGrammarCLI < Thor
     cnt = 0
     while (1)
       cnt += 1
-      qna = qna_generator.get_qna()
+      qna = generator.get_qna()
       question = "Q#{cnt}. #{qna[:question]}"
       answer = " => A#{cnt}. #{qna[:answer]}"
 

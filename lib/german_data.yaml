@@ -5,7 +5,7 @@ article_types:
   - pronouns
 
 pronouns_dic:
-  ich: '나'
+  ich: '내'
   du: '너'
   er: '그'
   es: '그것'
