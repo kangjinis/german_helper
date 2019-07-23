@@ -20,7 +20,7 @@ class GermanGrammarCLI < Thor
   def hint
     article = @prompt.enum_select("Select an article type?", @german_data.article_types)
     specific_article = @german_data.send(article)
-    type_instance = QAGeneratorFactory.create(article)
+    type_instance = QAGenerator.create(article)
     type_instance.print_hint
   end
 
@@ -32,7 +32,7 @@ class GermanGrammarCLI < Thor
       article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
     end
 
-    qna_generator = QAGeneratorFactory.create(article)
+    qna_generator = QAGenerator.create(article)
     qna_generator.ask_question(@prompt)
 
     cnt = 0

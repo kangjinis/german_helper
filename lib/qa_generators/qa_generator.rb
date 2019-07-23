@@ -1,4 +1,5 @@
 class QAGenerator
+
     private
     def underscore(str)
         str.gsub(/::/, '/').gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').gsub(/([a-z\d])([A-Z])/,'\1_\2').tr("-", "_").downcase
@@ -13,6 +14,10 @@ class QAGenerator
     protected
 
     public
+    def self.create(type_name)
+        class_name = type_name.split('_').map{|x| x.capitalize}.join
+        Object.const_get(class_name).new
+    end
     def print_hint
         puts 'not implemented'
     end
