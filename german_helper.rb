@@ -19,9 +19,8 @@ class GermanGrammarCLI < Thor
 
   def hint
     article = @prompt.enum_select("Select an article type?", @german_data.article_types)
-    specific_article = @german_data.send(article)
-    type_instance = QnaGeneratorFactory.create(article)
-    type_instance.print_hint
+    generator = QnaGeneratorFactory.create(article)
+    generator.print_hint
   end
 
   desc "test", ""
@@ -32,8 +31,8 @@ class GermanGrammarCLI < Thor
       article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
     end
 
-    qna_generator = QnaGeneratorFactory.create(article)
-    qna_generator.ask_question(@prompt)
+    generator = QnaGeneratorFactory.create(article)
+    generator.ask_question(@prompt)
 
     cnt = 0
     while (1)
