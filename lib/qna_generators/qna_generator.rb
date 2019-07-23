@@ -13,6 +13,10 @@ class QnaGenerator
     protected
 
     public
+    def self.create(type_name)
+        class_name = type_name.split('_').map{|x| x.capitalize}.join
+        Object.const_get(class_name).new
+    end
     def print_hint
         puts 'not implemented'
     end
