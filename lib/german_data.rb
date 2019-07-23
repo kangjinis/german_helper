@@ -46,6 +46,12 @@ class GermanData
     return case_ger, case_kor
   end
 
+  def get_random_pronoun
+    pronoun_ger = pronouns_dic.keys.sample
+    pronoun_kor = pronouns_dic[pronoun_ger]
+    return pronoun_ger, pronoun_kor
+  end
+
   def article_types
     @doc["article_types"]
   end
