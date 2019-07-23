@@ -1,9 +1,6 @@
-class PossesivePronouns
-  def initialize
-    @type = "posessive_pronouns"
-    @german_data = GermanData.new
-  end
+require_relative './qa_generator.rb'
 
+class PossesivePronouns < QAGenerator
   public
 
   def print_hint

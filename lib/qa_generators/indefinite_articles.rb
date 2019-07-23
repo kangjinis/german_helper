@@ -1,9 +1,6 @@
-class IndefiniteArticles
-  def initialize
-    @type = "indefinite_articles"
-    @german_data = GermanData.new
-  end
+require_relative './qa_generator.rb'
 
+class IndefiniteArticles < QAGenerator
   public
 
   def print_hint

@@ -1,8 +1,6 @@
-class DefiniteArticles
-  def initialize
-    @type = "definite_articles"
-    @german_data = GermanData.new
-  end
+require_relative './qa_generator.rb'
+
+class DefiniteArticles < QAGenerator
 
   public
 
