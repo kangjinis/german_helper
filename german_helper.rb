@@ -50,11 +50,10 @@ class GermanGrammarCLI < Thor
         puts answer
 
         feature = {
-          'q'=> lambda{exit},
-          'h'=> lambda{print_hint(article)},
+          "q" => lambda { exit },
+          "h" => lambda { print_hint(article) },
         }[result]
         feature.call if !feature.nil?
-
       else
         puts question
         sleep(3)

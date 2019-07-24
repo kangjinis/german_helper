@@ -1,7 +1,6 @@
-require_relative './qna_generator.rb'
+require_relative "./qna_generator.rb"
 
 class DefiniteArticles < QnaGenerator
-
   public
 
   def print_hint
@@ -22,9 +21,7 @@ class DefiniteArticles < QnaGenerator
   end
 
   def get_qna()
-    if @gender == "all"
-      @gender = @german_data.get_genders_by_article(@type).sample
-    end
+    @gender = @german_data.get_genders_by_article(@type).sample if @gender == "all"
 
     noun_ger, noun_kor = @german_data.get_random_noun(@gender)
     case_ger, case_kor = @german_data.get_random_case

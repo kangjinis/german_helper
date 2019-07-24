@@ -1,4 +1,4 @@
-require_relative './qna_generator.rb'
+require_relative "./qna_generator.rb"
 
 class Pronouns < QnaGenerator
   public
