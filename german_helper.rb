@@ -13,14 +13,18 @@ class GermanGrammarCLI < Thor
     @prompt = TTY::Prompt.new
   end
 
+  def print_hint(article)
+    generator = QnaGeneratorFactory.create(article)
+    generator.print_hint
+  end
+
   public
 
   desc "hint", ""
 
   def hint
     article = @prompt.enum_select("Select an article type?", @german_data.article_types)
-    generator = QnaGeneratorFactory.create(article)
-    generator.print_hint
+    print_hint(article)
   end
 
   desc "test", ""
@@ -38,15 +42,19 @@ class GermanGrammarCLI < Thor
     while (1)
       cnt += 1
       qna = generator.get_qna()
-      question = "Q#{cnt}. #{qna[:question]}"
+      question = "Q#{cnt}. #{qna[:question]} (enter:next, q:quit, h:hint)"
       answer = " => A#{cnt}. #{qna[:answer]}"
 
       if (auto == false)
         result = @prompt.ask question
         puts answer
-        if (result == "q")
-          exit
-        end
+
+        feature = {
+          'q'=> lambda{exit},
+          'h'=> lambda{print_hint(article)},
+        }[result]
+        feature.call if !feature.nil?
+
       else
         puts question
         sleep(3)
