@@ -3,6 +3,7 @@ article_types:
   - definite_articles
   - indefinite_articles
   - pronouns
+  - possessive_pronouns 
 
 pronouns_dic:
   ich: '나(내)'
@@ -117,3 +118,25 @@ pronouns:
     akkusativ: Sie
     dativ: Ihnen
     genetiv: Ihrer
+
+possessive_pronouns:
+  masculine:
+    nominativ: mein       # 내 남자가 
+    akkusativ: meinen     # 내 남자를
+    dativ: meinem         # 내 남자에게
+    genetiv: meines       # 내 남자의
+  neutral:
+    nominativ: mein
+    akkusativ: mein
+    dativ: meinem
+    genetiv: meines
+  feminine:
+    nominativ: meine
+    akkusativ: meine
+    dativ: meiner
+    genetiv: meiner
+  plural:
+    nominativ: meine
+    akkusativ: meine
+    dativ: meinen
+    genetiv: meiner

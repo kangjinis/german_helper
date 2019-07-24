@@ -25,6 +25,7 @@ class GermanData
     {
       "indefinite_articles" => genders_for_indefinite,
       "definite_articles" => genders,
+      "possessive_pronouns" => genders,
     }[article]
   end
 
@@ -64,8 +65,8 @@ class GermanData
     @doc["indefinite_articles"]
   end
 
-  def possesive_pronouns
-    @doc["possesive_pronouns"]
+  def possessive_pronouns
+    @doc["possessive_pronouns"]
   end
 
   def pronouns_dic
