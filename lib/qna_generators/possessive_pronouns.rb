@@ -18,17 +18,18 @@ class PossessivePronouns < QnaGenerator
 
   def ask_question(prompt)
     genders = @german_data.get_genders_by_article(@type).insert(0, "all")
-    @gender = prompt.enum_select("Select a gender?", genders)
+    @selected_gender = prompt.enum_select("Select a gender?", genders)
   end
 
   def get_qna()
-    @gender = @german_data.get_genders_by_article(@type).sample if @gender == "all"
-    noun_ger, noun_kor = @german_data.get_random_noun(@gender)
+    gender = @german_data.get_genders_by_article(@type).sample if @selected_gender == 'all'
+
+    noun_ger, noun_kor = @german_data.get_random_noun(gender)
     case_ger, case_kor = @german_data.get_random_case
 
     {
       :question => "내 #{noun_kor}#{case_kor}?",
-      :answer => "#{@data[@gender][case_ger].red} #{noun_ger}",
+      :answer => "#{@data[gender][case_ger].red} #{noun_ger}",
     }
   end
 end
