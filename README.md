@@ -12,6 +12,7 @@ Select an article type? definite_articles
 | plural    | die       | die       | den   | der     |
 +-----------+-----------+-----------+-------+---------+
 ```
+```
 ➜  german_helper git:(master) ./german_helper.rb test
 which type do you want to study? definite_articles
 Select a gender? all
