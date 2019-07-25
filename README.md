@@ -1,7 +1,7 @@
 # german_helper
 
 ```
-➜  german_helper git:(master) ./german_grammar_tester.rb hint
+➜  german_helper git:(master) ./german_helper.rb hint
 Select an article type? indefinite_articles
 Select a gender? masculine
 +---------------+---------------+
