@@ -13,6 +13,7 @@ class GermanGrammarCLI < Thor
     @prompt = TTY::Prompt.new
   end
 
+  private
   def print_hint(article)
     generator = QnaGeneratorFactory.create(article)
     generator.print_hint
