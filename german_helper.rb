@@ -53,19 +53,18 @@ class GermanGrammarCLI < Thor
         features = {
           "q" => lambda { 
             puts "You need to check below items." if dunno.size > 0
-            dunno.each_with_index{|qna, index| 
+            dunno.uniq.each_with_index{|qna, index| 
               puts "#{index +1}. question:#{qna[:question]} answer:#{qna[:answer]}"
             }
             exit 
           },
           "h" => lambda { 
-            dunno.push qna
             print_hint(article) 
           },
         }[result]
         features.call if !features.nil?
 
-        second_result = @prompt.ask(answer + " (next:enter, dunno:x)")
+        second_result = @prompt.ask(answer + " (correct:enter, wrong:x)")
         dunno.push qna if(second_result == 'x')
       else
         puts question
