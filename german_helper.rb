@@ -31,6 +31,7 @@ class GermanGrammarCLI < Thor
   desc "test", ""
 
   def test(auto = false)
+
     article = nil
     if (article.nil?)
       article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
@@ -39,22 +40,33 @@ class GermanGrammarCLI < Thor
     generator = QnaGeneratorFactory.create(article)
     generator.ask_question(@prompt)
 
+    dunno = []
     cnt = 0
     while (1)
       cnt += 1
       qna = generator.get_qna()
-      question = "Q#{cnt}. #{qna[:question]} (enter:next, q:quit, h:hint)"
+      question = "Q#{cnt}. #{qna[:question]} (enter:show answer, q:quit, h:hint)"
       answer = " => A#{cnt}. #{qna[:answer]}"
 
       if (auto == false)
         result = @prompt.ask question
-        puts answer
-
-        feature = {
-          "q" => lambda { exit },
-          "h" => lambda { print_hint(article) },
+        features = {
+          "q" => lambda { 
+            puts "You need to check below items." if dunno.size > 0
+            dunno.each_with_index{|qna, index| 
+              puts "#{index +1}. question:#{qna[:question]} answer:#{qna[:answer]}"
+            }
+            exit 
+          },
+          "h" => lambda { 
+            dunno.push qna
+            print_hint(article) 
+          },
         }[result]
-        feature.call if !feature.nil?
+        features.call if !features.nil?
+
+        second_result = @prompt.ask(answer + " (next:enter, dunno:x)")
+        dunno.push qna if(second_result == 'x')
       else
         puts question
         sleep(3)
