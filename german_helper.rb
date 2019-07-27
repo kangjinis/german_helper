@@ -11,12 +11,13 @@ class GermanGrammarCLI < Thor
     super
     @german_data = GermanData.new
     @prompt = TTY::Prompt.new
+    @generator = nil
   end
 
   private
   def print_hint(article)
-    generator = QnaGeneratorFactory.create(article)
-    generator.print_hint
+    @generator = QnaGeneratorFactory.create(article) if @generator == nil
+    @generator.print_hint
   end
 
   public
@@ -31,20 +32,15 @@ class GermanGrammarCLI < Thor
   desc "test", ""
 
   def test(auto = false)
-
-    article = nil
-    if (article.nil?)
-      article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
-    end
-
-    generator = QnaGeneratorFactory.create(article)
-    generator.ask_question(@prompt)
+    article = @prompt.enum_select("which type do you want to study?", @german_data.article_types)
+    @generator = QnaGeneratorFactory.create(article)
+    @generator.ask_question(@prompt)
 
     dunno = []
     cnt = 0
     while (1)
       cnt += 1
-      qna = generator.get_qna()
+      qna = @generator.get_qna()
       question = "Q#{cnt}. #{qna[:question]} (enter:show answer, q:quit, h:hint)"
       answer = " => A#{cnt}. #{qna[:answer]}"
 
@@ -52,10 +48,12 @@ class GermanGrammarCLI < Thor
         result = @prompt.ask question
         features = {
           "q" => lambda { 
-            puts "You need to check below items." if dunno.size > 0
+            puts "Answer status : #{cnt-dunno.size}/#{cnt}" 
+            puts "Please check below items what you checked : " if dunno.size > 0
             dunno.uniq.each_with_index{|qna, index| 
-              puts "#{index +1}. question:#{qna[:question]} answer:#{qna[:answer]}"
+              puts "  #{index +1}. question : #{qna[:question]}, answer : #{qna[:answer]}"
             }
+            print_hint(article)
             exit 
           },
           "h" => lambda { 
