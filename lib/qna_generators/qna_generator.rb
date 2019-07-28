@@ -9,18 +9,9 @@ class QnaGenerator
     @german_data = GermanData.new
     @type = underscore(self.class.name)
     @data = @german_data.send(@type)
-    @dic_items = {
-      pronouns: @german_data.pronouns_dic,
-      cases: @german_data.cases_dic,
-      nouns: @german_data.nouns_dic
-    }
   end
 
   protected
-  public
-  def get_dic(name)
-    @dic_items[name]
-  end
 
   def genders
     @german_data.get_genders_by_article(@type)
@@ -52,7 +43,6 @@ class QnaGenerator
       kor: case_kor
     }
   end
-
 
   public
 
