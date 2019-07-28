@@ -15,12 +15,11 @@ class Pronouns < QnaGenerator
   end
 
   def get_qna()
-    pronoun_ger, pronoun_kor = @german_data.get_random_pronoun
-    case_ger, case_kor = @german_data.get_random_case
-
+    pronoun = get_random_pronoun
+    case_item = get_random_case
     {
-      :question => "#{pronoun_kor}#{case_kor}?",
-      :answer => "#{@data[pronoun_ger][case_ger].red}",
+      :question => "#{pronoun[:kor]}#{case_item[:kor]}?",
+      :answer => "#{@data[pronoun[:ger]][case_item[:ger]].red}",
     }
   end
 end

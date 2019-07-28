@@ -22,11 +22,10 @@ class GermanData
   end
 
   def get_genders_by_article(article)
-    {
-      "indefinite_articles" => genders_for_indefinite,
-      "definite_articles" => genders,
-      "possessive_pronouns" => genders,
-    }[article]
+    if(article == 'indefinite_articles')
+      return genders_for_indefinite
+    end
+    genders
   end
 
   def get_ko_article(article)
@@ -34,23 +33,6 @@ class GermanData
       "indefinite_articles" => "한",
       "definite_articles" => "그",
     }[article]
-  end
-
-  def get_random_noun(gender)
-    noun_pair = @doc["nouns_dic"][gender].sample
-    return noun_pair.keys[0], noun_pair[noun_pair.keys[0]]
-  end
-
-  def get_random_case
-    case_ger = cases_dic.keys.sample
-    case_kor = cases_dic[case_ger]
-    return case_ger, case_kor
-  end
-
-  def get_random_pronoun
-    pronoun_ger = pronouns_dic.keys.sample
-    pronoun_kor = pronouns_dic[pronoun_ger]
-    return pronoun_ger, pronoun_kor
   end
 
   def article_types
@@ -73,7 +55,15 @@ class GermanData
     @doc["pronouns_dic"]
   end
 
+  def nouns_dic
+    @doc["nouns_dic"]
+  end
+
   def pronouns
     @doc["pronouns"]
+  end
+
+  def possessive_articles
+    @doc["possessive_articles"]
   end
 end

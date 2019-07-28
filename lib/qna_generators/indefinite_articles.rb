@@ -12,7 +12,6 @@ class IndefiniteArticles < QnaGenerator
         t.add_row [gender, item["nominativ"], item["akkusativ"], item["dativ"], item["genetiv"]]
       end
     end
-
     puts table
   end
 
@@ -23,13 +22,12 @@ class IndefiniteArticles < QnaGenerator
 
   def get_qna()
     gender = @german_data.get_genders_by_article(@type).sample if @selected_gender == 'all'
-
-    noun_ger, noun_kor = @german_data.get_random_noun(gender)
-    case_ger, case_kor = @german_data.get_random_case
+    noun = get_random_noun
+    case_item = get_random_case
 
     {
-      :question => "#{@german_data.get_ko_article(@type)} #{noun_kor}#{case_kor}?",
-      :answer => "#{@data[gender][case_ger].red} #{noun_ger}",
+      :question => "#{@german_data.get_ko_article(@type)} #{noun[:kor]}#{case_item[:kor]}?",
+      :answer => "#{@data[gender][case_item[:ger]].red} #{noun[:ger]}",
     }
   end
 end

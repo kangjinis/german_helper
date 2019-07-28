@@ -2,6 +2,7 @@
 article_types:
   - definite_articles
   - indefinite_articles
+  - possessive_articles
   - pronouns
   - possessive_pronouns 
 
@@ -24,14 +25,16 @@ cases_dic:
 
 nouns_dic:
   masculine:
-    - Mann:   '남자'
-    # - Vater:  '아버지'
+    Mann:   '남자'
+    Vater:  '아버지'
   neutral:
-    - Kind:   '아이'
+    Kind:    '아이'
+    Mädchen: '소녀'
   feminine:
-    - Frau:   '여자'
+    Frau:   '여자'
+    Mutter:   '엄마'
   plural:
-    - Leute:  '사람들'
+    Leute:  '사람들'
 
 definite_articles:
   masculine: 
@@ -140,3 +143,50 @@ possessive_pronouns:
     akkusativ: meine
     dativ: meinen
     genetiv: meiner
+
+possessive_articles:
+  ich:
+    masculine: mein
+    neutral: mein
+    feminine: meine
+    plural: meine
+  du:
+    masculine: dein
+    neutral: dein
+    feminine: deine
+    plural: deine
+  er:
+    masculine: sein
+    neutral: sein
+    feminine: seine
+    plural: seine
+  es:
+    masculine: sein
+    neutral: sein
+    feminine: seine
+    plural: seine
+  sie(she):
+    masculine: ihr
+    neutral: ihr
+    feminine: ihre
+    plural: ihre
+  wir:
+    masculine: unser
+    neutral: unser
+    feminine: unsere
+    plural: unsere
+  ihr:
+    masculine: euer
+    neutral: euer
+    feminine: eure
+    plural: eure
+  sie(they):
+    masculine: ihr
+    neutral: ihr
+    feminine: ihre
+    plural: ihre
+  Sie(formal):
+    masculine: Ihr
+    neutral: Ihr
+    feminine: Ihre
+    plural: Ihre
