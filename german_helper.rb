@@ -62,8 +62,9 @@ class GermanGrammarCLI < Thor
         }[result]
         features.call if !features.nil?
 
-        second_result = @prompt.ask(answer + " (correct:enter, wrong:x)")
+        second_result = @prompt.ask(answer + " (correct:enter, wrong:x, hint:h)")
         dunno.push qna if(second_result == 'x')
+	print_hint(article) if second_result == 'h'
       else
         puts question
         sleep(3)
