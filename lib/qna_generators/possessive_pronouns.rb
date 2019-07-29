@@ -20,9 +20,8 @@ class PossessivePronouns < QnaGenerator
   end
 
   def get_qna()
-    gender = get_random_gender
-
-    noun = get_random_noun
+    gender = @selected_gender == 'all' ? get_random_gender : @selected_gender
+    noun = get_random_noun(gender)
     case_item = get_random_case
 
     {

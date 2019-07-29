@@ -17,7 +17,7 @@ class PossessiveArticles < QnaGenerator
   def get_qna()
     pronoun = get_random_pronoun
     gender = get_random_gender
-    noun = get_random_noun
+    noun = get_random_noun(gender)
     {
       :question => "#{pronoun[:kor]}의 #{noun[:kor]}?",
       :answer => "#{@data[pronoun[:ger]][gender]} #{noun[:ger]}"

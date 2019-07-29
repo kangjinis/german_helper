@@ -17,7 +17,7 @@ class QnaGenerator
     @german_data.get_genders_by_article(@type)
   end
   def get_random_gender
-    @german_data.get_genders_by_article(@type).sample
+    genders.sample
   end
   def get_random_pronoun
     pronouns = @german_data.pronouns_dic
@@ -27,8 +27,8 @@ class QnaGenerator
       kor: pronouns[pronoun_ger]
     }
   end
-  def get_random_noun()
-    nouns = @german_data.nouns_dic[get_random_gender]
+  def get_random_noun(gender)
+    nouns = @german_data.nouns_dic[gender]
     noun_ger = nouns.keys.sample
     {
       ger: noun_ger,
