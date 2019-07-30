@@ -15,6 +15,7 @@ class GermanGrammarCLI < Thor
   end
 
   private
+
   def print_hint(article)
     @generator = QnaGeneratorFactory.create(article) if @generator == nil
     @generator.print_hint
@@ -41,35 +42,39 @@ class GermanGrammarCLI < Thor
     while (1)
       cnt += 1
       qna = @generator.get_qna()
-      question = "Q#{cnt}. #{qna[:question]} (enter:show answer, q:quit, h:hint)"
+      question = "Q#{cnt}. #{qna[:question]} (enter:show answer, q:quit, h:hint, c:clear)"
       answer = " => A#{cnt}. #{qna[:answer]}"
 
       if (auto == false)
         result = @prompt.ask question
         key_events = {
-          "q" => lambda { 
-            puts "Answer status : #{cnt-dunno.size}/#{cnt}" 
+          "q" => lambda {
+            puts "Answer status : #{cnt - dunno.size}/#{cnt}"
             puts "Please check below items what you checked : " if dunno.size > 0
-            dunno.uniq.each_with_index{|qna, index| 
-              puts "  #{index +1}. question : #{qna[:question]}, answer : #{qna[:answer]}"
+            dunno.uniq.each_with_index { |qna, index|
+              puts "  #{index + 1}. question : #{qna[:question]}, answer : #{qna[:answer]}"
             }
             print_hint(article)
-            exit 
+            exit
           },
-          "h" => lambda { 
-            print_hint(article) 
+          "h" => lambda {
+            print_hint(article)
+          },
+          "c" => lambda {
+            system("clear")
+            @prompt.ask question
           },
         }
         key_events[result].call if !key_events[result].nil?
 
         result = @prompt.ask(answer + " (correct:enter, wrong:x, hint:h)")
         key_events = {
-          'x' => lambda {
-            dunno.push qna 
+          "x" => lambda {
+            dunno.push qna
           },
-          'h' => lambda {
-            print_hint(article) 
-          }
+          "h" => lambda {
+            print_hint(article)
+          },
         }
         key_events[result].call if !key_events[result].nil?
       else
