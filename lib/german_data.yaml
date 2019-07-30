@@ -15,7 +15,7 @@ pronouns_dic:
   wir: '우리'
   ihr: '너희들'
   sie(they): '그들'
-  Sie(formal): '당신'
+  Sie(formal): '귀하'
 
 cases_dic:
   nominativ:  '가(이)'
