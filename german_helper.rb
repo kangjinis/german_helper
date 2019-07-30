@@ -46,7 +46,7 @@ class GermanGrammarCLI < Thor
 
       if (auto == false)
         result = @prompt.ask question
-        features = {
+        key_events = {
           "q" => lambda { 
             puts "Answer status : #{cnt-dunno.size}/#{cnt}" 
             puts "Please check below items what you checked : " if dunno.size > 0
@@ -59,12 +59,19 @@ class GermanGrammarCLI < Thor
           "h" => lambda { 
             print_hint(article) 
           },
-        }[result]
-        features.call if !features.nil?
+        }
+        key_events[result].call if !key_events[result].nil?
 
-        second_result = @prompt.ask(answer + " (correct:enter, wrong:x, hint:h)")
-        dunno.push qna if(second_result == 'x')
-	print_hint(article) if second_result == 'h'
+        result = @prompt.ask(answer + " (correct:enter, wrong:x, hint:h)")
+        key_events = {
+          'x' => lambda {
+            dunno.push qna 
+          },
+          'h' => lambda {
+            print_hint(article) 
+          }
+        }
+        key_events[result].call if !key_events[result].nil?
       else
         puts question
         sleep(3)
