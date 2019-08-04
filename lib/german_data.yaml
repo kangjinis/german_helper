@@ -27,12 +27,14 @@ nouns_dic:
   masculine:
     Mann:   '남자'
     Vater:  '아버지'
+    Sohn:  '아들'
   neutral:
     Kind:    '아이'
     Mädchen: '소녀'
   feminine:
     Frau:   '여자'
     Mutter:   '엄마'
+    Tochter:   '딸'
   plural:
     Leute:  '사람들'
 
