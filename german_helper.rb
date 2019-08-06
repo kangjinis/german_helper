@@ -18,7 +18,7 @@ class GermanGrammarCLI < Thor
 
   def print_hint(article)
     @generator = QnaGeneratorFactory.create(article) if @generator == nil
-    @generator.print_hint
+    puts @generator.get_hint
   end
 
   public

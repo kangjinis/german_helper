@@ -3,7 +3,7 @@ require_relative "./qna_generator.rb"
 class Pronouns < QnaGenerator
   public
 
-  def print_hint
+  def get_hint
     table = Terminal::Table.new do |t|
       t.headings = @german_data.cases_dic.keys
       @german_data.pronouns.keys.each do |pronoun|
@@ -11,7 +11,7 @@ class Pronouns < QnaGenerator
         t.add_row [pronoun, item["akkusativ"], item["dativ"], item["genetiv"]]
       end
     end
-    puts table
+    table
   end
 
   def get_qna()

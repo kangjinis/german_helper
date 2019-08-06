@@ -51,7 +51,7 @@ class QnaGenerator
     Object.const_get(class_name).new
   end
 
-  def print_hint
+  def get_hint
     puts "not implemented"
   end
 

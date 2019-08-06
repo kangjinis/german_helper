@@ -3,7 +3,7 @@ require_relative "./qna_generator.rb"
 class PossessiveArticles < QnaGenerator
   public
 
-  def print_hint
+  def get_hint
     table = Terminal::Table.new do |t|
       t.headings = genders.insert(0, "")
       @german_data.pronouns_dic.keys.each do |pronoun|
@@ -11,7 +11,7 @@ class PossessiveArticles < QnaGenerator
         t.add_row [pronoun, item["masculine"], item["neutral"], item["feminine"], item["plural"]]
       end
     end
-    puts table
+    table
   end
 
   def get_qna()
